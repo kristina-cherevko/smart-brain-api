@@ -22,6 +22,8 @@ app.use(cors());
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
+app.use('/static', express.static(__dirname + '/client'));
+
 app.get ('/', (req, res) => { res.send('it is working!') })
 
 app.post('/signin', (req, res) => {signin.handleSignin(req, res, db, bcrypt); console.log('signin');  });
